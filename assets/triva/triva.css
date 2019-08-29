@@ -893,3 +893,10 @@ div {
     margin: 0;
     padding: 0;
 }
+#dataTable_wrapper input {
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border: 1px solid #d2d2d2;
+    border-radius: 0;
+}
