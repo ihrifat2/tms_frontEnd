@@ -124,7 +124,7 @@ demo = {
             ];
             var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
 
-            md.startAnimationForBarChart(websiteViewsChart);
+            md.startAnimationForBarChart(generateReportChart);
         }
     },
 
@@ -230,3 +230,42 @@ demo = {
         marker.setMap(map);
     }
 }
+
+
+/* ----------==========     Generate Report Chart initialization    ==========---------- */
+// var data = {
+//     labels: ['Expense', 'Income'],
+//     series: [
+//     [1000, 1300]
+//     ]
+// };
+
+// var options = {
+//     scales: {
+//         xAxes: [{
+//             barPercentage: 1
+//         }]
+//     }
+// };
+
+// new Chartist.Bar('#generateReportChart', data, options);
+
+new Chartist.Bar('#generateReportChart', {
+    labels: ['Expense', 'Income'],
+    series: [
+    [1000, 1300]
+    ]
+}, {
+    stackBars: true,
+    axisY: {
+        labelInterpolationFnc: function(value) {
+            return value;
+        }
+    }
+}).on('draw', function(data) {
+    if(data.type === 'bar') {
+        data.element.attr({
+            style: 'stroke-width: 30px'
+        });
+    }
+});
