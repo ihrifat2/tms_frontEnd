@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <link href="assets/css/material-dashboard.min.css?v=2.1.1" rel="stylesheet" />
     <link href="assets/triva/triva.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="assets/js/plugins/datatables/dataTables.bootstrap4.min.css"> -->
 </head>
@@ -135,7 +135,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Employee Details</h4>
+                                    <h4 class="card-title">Add Employee</h4>
                                     <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                                 </div>
                                 <div class="card-body">
@@ -184,19 +184,35 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Role</label>
-                                                        <input type="text" class="form-control">
+                                                        <!-- <label for="exampleFormControlSelect1">Role</label> -->
+                                                        <!-- <label class="bmd-label-floating">Role</label> -->
+                                                        <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                                            <option>Choose Role</option>
+                                                            <option>Role 1</option>
+                                                            <option>Role 2</option>
+                                                            <option>Role 3</option>
+                                                            <option>Role 4</option>
+                                                            <option>Role 5</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">NID/Passport Number</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Username</label>
                                                         <input type="text" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Email</label>
                                                         <input type="email" class="form-control">
@@ -217,6 +233,42 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="bmd-label-floating">Profile Picture</label>
+                                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail img-raised">
+                                                            <img src="assets/image/person.png" alt="...">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                                                        <div>
+                                                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                                                <span class="fileinput-new">Select image</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" name="..." />
+                                                            </span>
+                                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="bmd-label-floating">NID/Passport Scan Copy</label>
+                                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail img-raised">
+                                                            <img src="assets/image/person.png" alt="...">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                                                        <div>
+                                                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                                                <span class="fileinput-new">Select image</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" name="..." />
+                                                            </span>
+                                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <button type="submit" class="btn btn-primary pull-right">Create Profile</button>
                                             <div class="clearfix"></div>
                                         </form>
@@ -234,8 +286,12 @@
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
     <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
     <script src="assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="assets/js/plugins/jasny-bootstrap.min.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <!-- Material Dashboard triva methods, don't include it in your project! -->
