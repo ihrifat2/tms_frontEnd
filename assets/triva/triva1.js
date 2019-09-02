@@ -164,6 +164,7 @@ $(document).ready(function() {
     });
 });
 
+// dataTable Start
 $(document).ready(function() {
     $('#dataTable').DataTable();
 });
@@ -173,6 +174,17 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#dataTable2').DataTable();
 });
+// dataTable End
+
+
+// datepicker Start
+$( function() {
+    $( "#datepicker1" ).datepicker();
+});
+$( function() {
+    $( "#datepicker2" ).datepicker();
+});
+// datepicker End
 
 // FileInput
 $('.form-file-simple .inputFileVisible').click(function() {
@@ -207,4 +219,28 @@ $('.form-file-multiple .btn').on('focus', function() {
 
 $('.form-file-multiple .btn').on('focusout', function() {
     $(this).parent().siblings().trigger('focusout');
+});
+
+function active_customer(status){
+    if(status=="customer_section_1"){
+        document.getElementById("customer_section_1").style.display="none";
+        document.getElementById("customer_section_2").style.display="block";
+        document.getElementById("oldcustomer_2").checked = false;
+        document.getElementById("oldcustomer_1").checked = true;
+    }
+    else{
+        
+        document.getElementById("customer_section_2").style.display="none";
+        document.getElementById("customer_section_1").style.display="block";
+        document.getElementById("oldcustomer_2").checked = false;
+        document.getElementById("oldcustomer_1").checked = true;
+    }
+}
+$(document).ready(function(){
+    $('#datepicker_invoice_date').datepicker({
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayHighlight: true
+    });     
+            
 });
