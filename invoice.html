@@ -13,7 +13,14 @@
     <!-- CSS Files -->
     <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <link href="assets/triva/triva.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="assets/js/plugins/datatables/dataTables.bootstrap4.min.css"> -->
+    <style>
+        #customer_section_2 {
+            display:none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -133,111 +140,115 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="card">
-                            <div class="card-header">
-                                Invoice
-                                <strong>01/01/01/2018</strong> 
-                                <span class="float-right"> <strong>Status:</strong> Pending</span>
-                            </div>
                             <div class="card-body">
-                                <div class="row mb-4">
-                                    <div class="col-sm-6">
-                                        <h6 class="mb-3">From:</h6>
-                                        <div>
-                                            <strong>Webz Poland</strong>
-                                        </div>
-                                        <div>Madalinskiego 8</div>
-                                        <div>71-101 Szczecin, Poland</div>
-                                        <div>Email: info@webz.com.pl</div>
-                                        <div>Phone: +48 444 666 3333</div>
+                                <div class="row"> 
+                                    <div id="error"></div>                       
+                                    <div class="col-sm-8" id="customer_section_1">
+                                        <div class="form-group row">
+                                            <label for="customer_name" class="col-sm-3 col-form-label">Customers <i class="text-danger">*</i></label>
+                                            <div class="col-sm-6">
+                                                <input type="text" size="100" autocomplete="off" name="customer_name" class="customerSelection form-control" id="customer_name" required  />
+
+                                                <input id="customer_id" class="hidden_value" type="hidden" name="customer_id">
+                                            </div>
+                                            <div  class=" col-sm-3">
+                                                <input id="oldcustomer_1" type="button" onClick="active_customer('customer_section_1')"  class="btn btn-success checkbox_account" name="customer_confirm" checked="checked" value="New Customer" >
+                                            </div>
+                                        </div>                                
                                     </div>
-                                    <div class="col-sm-6">
-                                        <h6 class="mb-3">To:</h6>
-                                        <div>
-                                            <strong>Bob Mart</strong>
+                                    <div class="col-sm-8" id="customer_section_2">
+                                        <div class="form-group row">
+                                            <label for="customer_name_others" class="col-sm-3 col-form-label">Payee Name <i class="text-danger">*</i></label>
+                                            <div class="col-sm-6">
+                                                <input  autocomplete="off" type="text"  size="100" name="new_customer" id="new_customer" class="form-control" required />
+                                            </div>
+                                            <div  class="col-sm-3">
+                                                <input  onClick="active_customer('customer_section_2')" type="button" id="oldcustomer_2" class="checkbox_account btn btn-success" name="new_customer_name" value="Old Customer">
+                                            </div>
                                         </div>
-                                        <div>Attn: Daniel Marek</div>
-                                        <div>43-190 Mikolow, Poland</div>
-                                        <div>Email: marek@daniel.com</div>
-                                        <div>Phone: +48 123 456 789</div>
+                                        <div class="form-group row">
+                                            <label for="cus_mobile" class="col-sm-3 col-form-label">Mobile </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" autocomplete="off"  size="100" name="cus_mobile" class=" form-control" id="cus_mobile" />
+                                            </div>
+                                        </div> 
+
+                                        <div class="form-group row">
+                                            <label for="customer_name_others_address" class="col-sm-3 col-form-label">Address </label>
+                                            <div class="col-sm-6">
+                                                <input type="text"  size="100" name="new_customer_address" autocomplete="off" class=" form-control" id="new_customer_address" />
+                                            </div>
+                                        </div> 
                                     </div>
                                 </div>
-                                <div class="table-responsive-sm">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center">#</th>
+
+                                <div class="form-group row">
+                                    <label for="datepicker_invoice_date" class="col-sm-2 col-form-label">
+                                        Date <i class="text-danger">*</i>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="datepicker1">
+                                        <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" id="dataTable1">
+                                        <thead class=" text-primary">
+                                            <tr class="item-row">
                                                 <th>Item</th>
-                                                <th class="right">Unit Cost</th>
-                                                <th class="center">Qty</th>
-                                                <th class="right">Total</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr id="hiderow">
+                                                <td colspan="4">
+                                                    <a id="addRow" href="javascript:;" title="Add a row" class="btn btn-primary">Add a row</a>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr class="item-row">
+                                                <td><input class="form-control item" placeholder="Item" type="text"></td>
+                                                <td><input class="form-control price" placeholder="Price" type="text"></td>
+                                                <td><input class="form-control qty" placeholder="Quantity" type="text"></td>
+                                                <td><span class="total">0.00</span></td>
+                                            </tr> -->
                                             <tr>
-                                                <td class="center">1</td>
-                                                <td class="left strong">Origin License</td>
-                                                <td class="right">$999,00</td>
-                                                <td class="center">1</td>
-                                                <td class="right">$999,00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-right"><strong>Sub Total</strong></td>
+                                                <td><span id="subtotal">0.00</span></td>
                                             </tr>
                                             <tr>
-                                                <td class="center">2</td>
-                                                <td class="left">Custom Services</td>
-                                                <td class="right">$150,00</td>
-                                                <td class="center">20</td>
-                                                <td class="right">$3.000,00</td>
+                                                <td><strong>Total Quantity: </strong><span id="totalQty" style="color: red; font-weight: bold">0</span> Units</td>
+                                                <td></td>
+                                                <td class="text-right"><strong>Discount</strong></td>
+                                                <td><input class="form-control" id="discount" value="0" type="text"></td>
                                             </tr>
                                             <tr>
-                                                <td class="center">3</td>
-                                                <td class="left">Hosting</td>
-                                                <td class="right">$499,00</td>
-                                                <td class="center">1</td>
-                                                <td class="right">$499,00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-right"><strong>Shipping</strong></td>
+                                                <td><input class="form-control" id="shipping" value="0" type="text"></td>
                                             </tr>
                                             <tr>
-                                                <td class="center">4</td>
-                                                <td class="left">Platinum Support</td>
-                                                <td class="right">$3.999,00</td>
-                                                <td class="center">1</td>
-                                                <td class="right">$3.999,00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-right"><strong>Grand Total</strong></td>
+                                                <td><span id="grandTotal">0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-right">
+                                                    <a class="btn btn-success" href="createInvoice.html">submit</a>
+                                                    <!-- <button class="btn btn-success" type="submit">submit</button> -->
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-5"></div>
-                                    <div class="col-lg-4 col-sm-5 ml-auto">
-                                        <table class="table table-clear">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="left">
-                                                        <strong>Subtotal</strong>
-                                                    </td>
-                                                    <td class="right">$8.497,00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="left">
-                                                        <strong>Discount (20%)</strong>
-                                                    </td>
-                                                    <td class="right">$1,699,40</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="left">
-                                                        <strong>VAT (10%)</strong>
-                                                    </td>
-                                                    <td class="right">$679,76</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="left">
-                                                        <strong>Total</strong>
-                                                    </td>
-                                                    <td class="right">
-                                                        <strong>$7.477,36</strong>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -258,6 +269,11 @@
     <!-- Material Dashboard triva methods, don't include it in your project! -->
     <script src="assets/triva/triva.js"></script>
     <script src="assets/triva/triva1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="assets/triva/invoice.js"></script>
+    <script src="assets/js/plugins/jquery.invoice.js"></script>
     <script>
         $(document).ready(function() {
             md.initDashboardPageCharts();
