@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <link href="assets/css/material-dashboard.min.css" rel="stylesheet" />
     <link href="assets/triva/triva.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="assets/js/plugins/datatables/dataTables.bootstrap4.min.css"> -->
 </head>
@@ -158,11 +158,37 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
+                                                        <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                                            <option>Choose Product Category</option>
+                                                            <option>Product Category 1</option>
+                                                            <option>Product Category 2</option>
+                                                            <option>Product Category 3</option>
+                                                            <option>Product Category 4</option>
+                                                            <option>Product Category 5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                                            <option>Choose Product type</option>
+                                                            <option>Product type 1</option>
+                                                            <option>Product type 2</option>
+                                                            <option>Product type 3</option>
+                                                            <option>Product type 4</option>
+                                                            <option>Product type 5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label class="bmd-label-floating">Product Quantity</label>
                                                         <input type="text" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Sub Price</label>
                                                         <input type="text" class="form-control">
@@ -186,6 +212,8 @@
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <!-- Material Dashboard triva methods, don't include it in your project! -->

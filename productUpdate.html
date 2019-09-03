@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <link href="assets/css/material-dashboard.min.css" rel="stylesheet" />
     <link href="assets/triva/triva.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="assets/js/plugins/datatables/dataTables.bootstrap4.min.css"> -->
 </head>
@@ -185,15 +185,19 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-group form-file-upload form-file-multiple bmd-form-group">
-                                                        <input type="file" multiple="" class="inputFileHidden">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control inputFileVisible" placeholder="Product Image">
-                                                            <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-fab btn-round btn-primary">
-                                                                    <i class="material-icons">attach_file</i>
-                                                                </button>
+                                                    <label class="bmd-label-floating">Product Image</label>
+                                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail img-raised">
+                                                            <img src="assets/image/person.png" alt="...">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                                                        <div>
+                                                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                                                <span class="fileinput-new">Select image</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" name="..." />
                                                             </span>
+                                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -215,6 +219,10 @@
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="assets/js/plugins/jasny-bootstrap.min.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <!-- Material Dashboard triva methods, don't include it in your project! -->
